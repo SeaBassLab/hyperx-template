@@ -1,21 +1,19 @@
-# .air.toml
 root = "."
 tmp_dir = "tmp"
 
 [build]
-  cmd = "go run main.go"
-  include_ext = ["go", "tpl", "tmpl", "html"]
-  exclude_dir = ["vendor", "tmp", "node_modules"]
-  exclude_file = []
-  follow_symlink = true
-  delay = 1000 # ms
+cmd = "go build -o tmp/app main.go"
+bin = "tmp/app"
+include_ext = ["go", "html"]
+exclude_dir = ["vendor", "node_modules", "tmp"]
+delay = 1000
 
 [log]
-  time = true
+time = true
 
 [color]
-  main = "yellow"
+main = "yellow"
 
 [include]
-  ext = ["go", "html"]
-  path = ["pages", "partials", "."]
+ext = ["go", "html"]
+path = ["pages", "partials", "."]
