@@ -12,8 +12,11 @@ func main() {
 	if env == "" {
 		env = "dev" // fallback por defecto
 	}
-
-	err := server.StartServer(env, "3000")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "4001" // default si no está en env
+	}
+	err := server.StartServer(env, port)
 	if err != nil {
 		log.Fatal(err)
 	}
